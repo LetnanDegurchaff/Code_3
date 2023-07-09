@@ -18,6 +18,8 @@ public class Player : MonoBehaviour
 
     private float _groundRadius = 0.01f;
 
+    private const string RunParameterName = "IsRun";
+
     private bool IsGrounded()
     {
         return 
@@ -48,12 +50,12 @@ public class Player : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftShift) && IsGrounded())
         {
-            _animator.SetBool("IsRun", true);
+            _animator.SetBool(RunParameterName, true);
             _currentSpeed = _speed * _runSpeedModifier;
         }
         else
         {
-            _animator.SetBool("IsRun", false);
+            _animator.SetBool(RunParameterName, false);
             _currentSpeed = _speed;
         }
 
